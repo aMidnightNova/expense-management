@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+</div>
+<div class="modal-body">
+
+    <h2>Expense Item:</h2>
+    <form name="form" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.merchant.$dirty && form.merchant.$error.required }">
+            <label for="merchant">Merchant</label>
+            <input type="text" name="merchant" id="merchant" class="form-control" ng-model="modalData.merchant" required />
+            <span ng-show="form.merchant.$dirty && form.merchant.$error.required" class="help-block">Merchant is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.expense.$dirty && form.expense.$error.required }">
+            <label for="expense">Expense</label>
+            <input  type="text" name="expense" id="expense" class="form-control" ng-model="modalData.expense" ng-pattern="numbersOnly" required />
+            <span ng-show="form.expense.$dirty && form.expense.$error.required" class="help-block">Expense is required</span>
+            <span ng-show="form.expense.$dirty && form.expense.$error.pattern" class="help-block">E.G. 123.45</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.date.$dirty && form.date.$error.required }">
+            <label for="date">Date</label>
+            <input type="text" name="date" id="date" class="form-control" ng-model="modalData.date" ng-pattern="dateFormat" required />
+            <span ng-show="form.date.$dirty && form.date.$error.required" class="help-block">date is required</span>
+            <span ng-show="form.date.$dirty && form.date.$error.pattern" class="help-block">E.G. MM/DD/YYYY</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.comments.$dirty && form.comments.$error.required }">
+            <label for="comments">Comments</label>
+            <input type="text" name="comments" id="comments" class="form-control" ng-model="modalData.comments" required />
+            <span ng-show="form.comments.$dirty && form.comments.$error.required" class="help-block">Comments are required</span>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button ng-disabled="form.$invalid" class="btn btn-primary" type="button" ng-click="ok()">Add</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

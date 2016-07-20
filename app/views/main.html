@@ -1,0 +1,57 @@
+<div class="container-fluid" ng-if="isLoggedIn">
+    <br>
+    <button type="button" class="btn btn-primary" ng-click="addExpense()">Add Expense</button>
+    <br>
+    <br>
+
+
+    <div class="row expense-title">
+        <div class="col-md-1">
+            <label for="status">Status</label>
+        </div>
+        <div class="col-md-2">
+            <label for="merchant">Merchant</label>
+        </div>
+        <div class="col-md-2">
+            <label for="expense">Expense</label>
+        </div>
+        <div class="col-md-2">
+            <label for="date">Date</label>
+        </div>
+        <div class="col-md-5">
+            <label for="comments">Comments</label>
+        </div>
+    </div>
+
+
+    <div ng-form="form" class="row expense-rows " ng-repeat="expense in modalData track by $index" >
+        <div class="col-md-1 valign">
+            <select ng-show="show" name="status" id="status" class="form-control" ng-model="expense.status">
+                <option>New</option>
+                <option>Reimbursed</option>
+            </select>
+            <div ng-click="toggleShow(this,expense.status)" ng-show="!show">{{expense.status}}</div>
+        </div>
+        <div class="col-md-2 valign">
+            <input ng-show="show" type="text" name="merchant" id="merchant" class="form-control" ng-model="expense.merchant"/>
+            <div ng-click="toggleShow(this,expense.status)" ng-show="!show">{{expense.merchant}}</div>
+        </div>
+        <div class="col-md-2 valign">
+            <input ng-class="{ 'p50': form.expense.$error.pattern }" ng-show="show" type="text" name="expense" id="expense" class="form-control" ng-model="expense.expense" ng-pattern="numbersOnly"/>
+            <span ng-show="form.expense.$error.pattern" class="help-block">E.G. 123.45</span>
+            <div ng-click="toggleShow(this,expense.status)" ng-show="!show">{{expense.expense}}</div>
+        </div>
+        <div class="col-md-2 valign">
+            <input ng-class="{ 'p50': form.date.$error.pattern }" ng-show="show" type="text" name="date" id="date" class="form-control" ng-model="expense.date" ng-pattern="dateFormat" />
+            <span ng-show="form.date.$error.pattern" class="help-block">E.G. MM/DD/YYYY</span>
+            <div ng-click="toggleShow(this,expense.status)" ng-show="!show">{{expense.date}}</div>
+        </div>
+        <div class="col-md-5 valign" >
+            <input ng-show="show" type="text" name="comments" id="comments" class="form-control" ng-model="expense.comments"/>
+            <div ng-click="toggleShow(this,expense.status)" ng-show="!show">{{expense.comments}}</div>
+            <button ng-disabled="form.$invalid" ng-show="show" ng-click="show = !show" class="btn btn-primary" type="button">Ok</button>
+            <button ng-show="show" ng-click="delete(this,$index)" class="btn btn-danger" type="button">delete</button>
+        </div>
+
+    </div>
+</div>
