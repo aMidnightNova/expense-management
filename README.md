@@ -26,7 +26,7 @@ I believe (I have had a lot of this installed for years) you will need;
 
 ## 1.1.1JavaScript
 
-The login logic is in its own services and its implemented from the file routing.js from inside of the ui router. I have abstracted all routs that require a login. This abstraction allows for a promise to be returned and we can use this to return a reject promise that will then redirect them to the login route.
+The login logic is in its own service and its implemented from the file routing.js from inside of the ui router. I have abstracted all routs that require a login. This abstraction allows for a promise to be returned and we can use this to return a reject promise that will then redirect them to the login route.
 
 The rest of the javascript will be in the files main.js and addExpenseModal.js
 
