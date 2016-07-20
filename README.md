@@ -3,7 +3,6 @@
 # ​expense Mgmt
 
 
-
 ## 1.1 Design
 
 The design of this app follows yeomon scaffolding and utilizes basic build tools such as NPM, Grunt, and Bower. Once you download the source files you should only need to run the following commands provided you have the proper tools installed.
