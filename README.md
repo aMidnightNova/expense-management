@@ -1,5 +1,3 @@
-
-
 # ​expense Mgmt
 
 
@@ -12,7 +10,12 @@ bower install
 npm install
 ```
 
-Once those are done grunt serve
+Once those are done 
+
+```
+grunt serve
+```
+
 
 I believe (I have had a lot of this installed for years) you will need;
 
